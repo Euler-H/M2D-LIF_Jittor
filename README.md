@@ -314,8 +314,8 @@ The following figure compares GPU memory usage during training. It is used to an
 
 ## 8. Reference
 
-- Jittor：<https://github.com/Jittor>
-- JDet：<https://github.com/Jittor/JDet>
-- Ultralytics YOLO: <https://github.com/ultralytics/ultralytics>
-- M2D-LIF：<https://github.com/Zhao-Tian-yi/M2D-LIF> 
-- DroneVehicle dataset: <https://github.com/VisDrone/DroneVehicle>
+- [Jittor](https://github.com/Jittor)
+- [JDet](https://github.com/Jittor/JDet)
+- [Ultralytics YOLO](https://github.com/ultralytics/ultralytics)
+- [M2D-LIF](https://github.com/Zhao-Tian-yi/M2D-LIF)
+- [DroneVehicle dataset](https://github.com/VisDrone/DroneVehicle)
