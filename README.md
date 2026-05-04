@@ -292,7 +292,7 @@ The following visualization shows representative dual-modal detection results of
 The following figure records the main loss curves during M2D-LIF training, including the detection loss and additional distillation-related losses. These logs are useful for checking whether the dual-modal student model is optimized normally and whether the distillation terms remain numerically stable.
 
 ![M2D-LIF loss comparison](docs/3_loss.png)
-![M2D-LIF loss comparison](docs/3_loss.png)
+![M2D-LIF loss comparison](docs/distill_loss.png)
 
 ### 7.5 GPU Memory Usage Logs
 
