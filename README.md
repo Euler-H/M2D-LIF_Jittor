@@ -21,8 +21,6 @@ The implementation contains two main parts:
    - Uses single-modal teacher models to guide dual-modal student training.
    - Provides training, validation, and visualization scripts for dual-modal OBB detection.
 
-This repository is not a fully packaged one-click experimental benchmark. It is intended as a research-oriented reproduction codebase. Paths, dataset roots, checkpoint paths, and some experiment-specific settings should be modified according to the local environment before running.
-
 ## 2. Tested Environment
 
 The following environment was used during development and testing.
