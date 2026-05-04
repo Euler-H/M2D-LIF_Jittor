@@ -93,14 +93,6 @@ A typical dataset directory is:
 └── val.txt
 ```
 
-The expected OBB label format is YOLO-style polygon annotation:
-
-```text
-class_id x1 y1 x2 y2 x3 y3 x4 y4
-```
-
-where the four points are normalized polygon coordinates.
-
 Example class names:
 
 ```text
