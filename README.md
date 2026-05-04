@@ -317,4 +317,3 @@ The following figure compares GPU memory usage during training. It is used to an
 - [Ultralytics YOLO](https://github.com/ultralytics/ultralytics)
 - [M2D-LIF](https://github.com/Zhao-Tian-yi/M2D-LIF)
 - [DroneVehicle dataset](https://github.com/VisDrone/DroneVehicle)
-](https://blog.csdn.net/qq_52551375/article/details/154406392?ops_request_misc=elastic_search_misc&request_id=f6fe4db15779a888a3414679094fb35f&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-154406392-null-null.142^v102^pc_search_result_base4&utm_term=dronevehicle%E6%95%B0%E6%8D%AE%E9%9B%86%E5%91%A8%E5%9B%B4%E7%99%BD%E8%BE%B9&spm=1018.2226.3001.4187)
