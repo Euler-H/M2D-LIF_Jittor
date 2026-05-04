@@ -302,9 +302,7 @@ The following figure compares GPU memory usage during training. It is used to an
 
 
 
-## 8. Citation & Reference
-
-If this project is used in academic work, please cite the original methods and frameworks related to:
+## 8. Reference
 
 - Jittor：<https://github.com/Jittor>
 - JDet：<https://github.com/Jittor/JDet>
