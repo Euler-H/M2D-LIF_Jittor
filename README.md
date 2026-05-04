@@ -285,7 +285,7 @@ The following figure records the main loss curves during M2D-LIF training, inclu
 
 The following figure compares GPU memory usage during training. It is used to analyze the runtime cost of the reproduced Jittor implementation, especially under the dual-modal M2D-LIF setting where two modalities and teacher-guided feature distillation are involved.
 
-![M2D-LIF GPU memory comparison](docs/assets/readme/m2dlif_gpu_memory_comparison.png)
+![M2D-LIF GPU memory comparison](docs/m2dlif_gpu_memory_comparison.png)
 
 ### 7.4 Detection Performance Curves
 
