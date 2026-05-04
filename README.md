@@ -74,9 +74,7 @@ PyTorch and Ultralytics were not installed in the tested Jittor environment. Thi
 
 ## 3. Dataset Preparation
 
-The project uses a DroneVehicle-style visible-infrared dataset layout.
-
-A typical dataset directory is:
+The project uses a M2D-LIF-style visible-infrared dataset layout.
 
 ```text
 5000-DroneVehice/
@@ -115,6 +113,26 @@ The DroneVehicle dataset can be downloaded from the following BaiduYun links:
   Extraction code: `tqwc`
 
 After downloading the dataset, please adjust the dataset root and split paths in the corresponding config files.
+
+\subsection{Dataset Preprocessing}
+
+Before training, preprocess the original DroneVehicle dataset with:
+
+\begin{verbatim}
+python /root/M2D-LIF_Jittor/tools/pre.py
+\end{verbatim}
+
+This script crops the images in the DroneVehicle dataset into $640 \times 640$ patches and generates the corresponding OBB label files.
+
+After preprocessing, select the first 5000 images from the training set with:
+
+\begin{verbatim}
+python /root/M2D-LIF_Jittor/move.py
+\end{verbatim}
+
+This script constructs the \texttt{5000-DroneVehice} subset used in the experiments, including the paired visible-light images, infrared images, labels, and the corresponding \texttt{train.txt} / \texttt{val.txt} split files.
+
+Please make sure the dataset paths in \texttt{pre.py}, \texttt{move.py}, and the related config files are modified according to your local environment before running the scripts.
 
 ## 4. Single-Modal YOLOv8-OBB
 
