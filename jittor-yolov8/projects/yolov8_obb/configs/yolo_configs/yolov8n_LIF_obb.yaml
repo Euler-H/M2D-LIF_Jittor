@@ -1,0 +1,56 @@
+# Jittor M2D-LIF YOLOv8-OBB student, aligned with M2D-LIF PyTorch yolov8_LIF_obb.yaml.
+ch: 6
+nc: 5
+scale: n
+scales:
+  n: [0.33, 0.25, 1024]
+  s: [0.33, 0.50, 1024]
+  m: [0.67, 0.75, 768]
+  l: [1.00, 1.00, 512]
+  x: [1.00, 1.25, 512]
+
+backbone:
+  - [-1, 1, IN, []]          # 0
+  - [-1, 1, Multiin, [1]]    # 1 RGB
+  - [-1, 1, LIF, []]         # 2 brightness weight map from RGB
+  - [-3, 1, Multiin, [2]]    # 3 IR
+
+  - [-3, 1, Conv, [64, 3, 2]]    # 4 RGB P1/2
+  - [-2, 1, Conv, [64, 3, 2]]    # 5 IR  P1/2
+  - [-2, 1, Conv, [128, 3, 2]]   # 6 RGB P2/4
+  - [-2, 1, Conv, [128, 3, 2]]   # 7 IR  P2/4
+  - [-2, 3, C2f, [128, True]]    # 8 RGB
+  - [-2, 3, C2f, [128, True]]    # 9 IR
+  - [-2, 1, Conv, [256, 3, 2]]   # 10 RGB P3/8
+  - [-2, 1, Conv, [256, 3, 2]]   # 11 IR  P3/8
+  - [-2, 6, C2f, [256, True]]    # 12 RGB distill P3
+  - [-2, 6, C2f, [256, True]]    # 13 IR  distill P3
+  - [[-1, -2, 2], 1, LIFAdd, [3]] # 14 fused P3
+
+  - [-3, 1, Conv, [512, 3, 2]]   # 15 RGB P4/16
+  - [-3, 1, Conv, [512, 3, 2]]   # 16 IR  P4/16
+  - [-2, 6, C2f, [512, True]]    # 17 RGB distill P4
+  - [-2, 6, C2f, [512, True]]    # 18 IR  distill P4
+  - [[-1, -2, 2], 1, LIFAdd, [4]] # 19 fused P4
+
+  - [-3, 1, Conv, [1024, 3, 2]]  # 20 RGB P5/32
+  - [-3, 1, Conv, [1024, 3, 2]]  # 21 IR  P5/32
+  - [-2, 3, C2f, [1024, True]]   # 22 RGB distill P5
+  - [-2, 3, C2f, [1024, True]]   # 23 IR  distill P5
+  - [[-1, -2, 2], 1, LIFAdd, [5]] # 24 fused P5
+  - [-1, 1, SPPF, [512, 5]]      # 25
+
+head:
+  - [-1, 1, Upsample, [2]]
+  - [[-1, 19], 1, Concat, [1]]
+  - [-1, 3, C2f, [512]]          # 28
+  - [-1, 1, Upsample, [2]]
+  - [[-1, 14], 1, Concat, [1]]
+  - [-1, 3, C2f, [256]]          # 31 P3
+  - [-1, 1, Conv, [256, 3, 2]]
+  - [[-1, 28], 1, Concat, [1]]
+  - [-1, 3, C2f, [512]]          # 34 P4
+  - [-1, 1, Conv, [512, 3, 2]]
+  - [[-1, 25], 1, Concat, [1]]
+  - [-1, 3, C2f, [1024]]         # 37 P5
+  - [[31, 34, 37], 1, OBB, [nc, 1]]
