@@ -263,7 +263,43 @@ Trained weights are provided through BaiduYun:
 - Link: <https://pan.baidu.com/s/1u2xalvD3TuqOy45XGPFWGA>
 - Extraction code: `2605`
 
-## 7. Citation
+## 7. Experimental Logs and Performance Comparison
+
+This section provides representative experimental logs and qualitative visualization results. The figures are intended to document the training trend, GPU memory behavior, detection accuracy, and visual detection results obtained during the reproduction process.
+
+> Note: The current repository is a research reproduction and extension codebase. The reported curves are used to describe the reproduced experimental behavior under the tested environment. Since the Jittor and PyTorch validation implementations may not be completely identical, the curves should be interpreted as experimental logs rather than a strictly unified benchmark.
+
+### 7.1 YOLOv8-OBB Single-Modal Detection Visualization
+
+The following figure shows representative single-modal YOLOv8-OBB oriented detection results. It is mainly used to verify that the Jittor YOLOv8-OBB detector can correctly perform oriented bounding box prediction on DroneVehicle-style aerial images.
+
+![YOLOv8-OBB single-modal visual comparison](docs/assets/readme/yolov8_obb_visual_comparison.png)
+
+### 7.2 M2D-LIF Training Loss Logs
+
+The following figure records the main loss curves during M2D-LIF training, including the detection loss and additional distillation-related losses. These logs are useful for checking whether the dual-modal student model is optimized normally and whether the distillation terms remain numerically stable.
+
+![M2D-LIF loss comparison](docs/assets/readme/m2dlif_loss_comparison.png)
+
+### 7.3 GPU Memory Usage Logs
+
+The following figure compares GPU memory usage during training. It is used to analyze the runtime cost of the reproduced Jittor implementation, especially under the dual-modal M2D-LIF setting where two modalities and teacher-guided feature distillation are involved.
+
+![M2D-LIF GPU memory comparison](docs/assets/readme/m2dlif_gpu_memory_comparison.png)
+
+### 7.4 Detection Performance Curves
+
+The following figure shows the mAP50 and mAP50-95 curves. The comparison includes single-modal baselines and the reproduced M2D-LIF dual-modal model. These curves are used to analyze the accuracy trend across epochs.
+
+![M2D-LIF mAP comparison](docs/assets/readme/m2dlif_map_comparison.png)
+
+### 7.5 M2D-LIF Dual-Modal Visualization
+
+The following visualization shows representative dual-modal detection results of the M2D-LIF branch. The results are shown in a concatenated RGB/IR view to make the visible-infrared correspondence easier to inspect.
+
+![M2D-LIF dual-modal visual comparison](docs/assets/readme/m2dlif_visual_comparison.png)
+
+## 8. Citation
 
 If this project is used in academic work, please cite the original methods and frameworks related to:
 
