@@ -128,7 +128,7 @@ After preprocessing, select the first 5000 images from the training set with:
 python /root/M2D-LIF_Jittor/move.py
 ```
 
-This script constructs the 5000-DroneVehice subset used in the experiments.
+This script constructs the 5000-DroneVehice subset used in the M2D-LIF_Jittor experiments.
 
 Please make sure the dataset paths in `pre.py`, `move.py`, and the related config files are modified according to your local environment before running the scripts.
 
@@ -279,9 +279,9 @@ This section provides representative experimental logs and qualitative visualiza
 
 ### 7.1 Detection Performance Curves
 
-The following figure shows the mAP50 curves. The comparison includes single-modal baselines and the reproduced M2D-LIF dual-modal model. These curves are used to analyze the accuracy trend across epochs.
+The following figure shows the mAP50-95 curves. The comparison includes single-modal baselines and the reproduced M2D-LIF dual-modal model. These curves are used to analyze the accuracy trend across epochs.
 
-![M2D-LIF mAP comparison](docs/map50_comparison.png)
+![M2D-LIF mAP comparison](docs/map50_95_comparison.png)
 
 ### 7.2 YOLOv8-OBB Single-Modal Detection Visualization
 
