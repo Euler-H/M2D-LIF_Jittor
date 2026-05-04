@@ -273,7 +273,7 @@ This section provides representative experimental logs and qualitative visualiza
 
 The following figure shows representative single-modal YOLOv8-OBB oriented detection results. It is mainly used to verify that the Jittor YOLOv8-OBB detector can correctly perform oriented bounding box prediction on DroneVehicle-style aerial images.
 
-![YOLOv8-OBB single-modal visual comparison](docs/assets/readme/yolov8_obb_visual_comparison.png)
+![YOLOv8-OBB single-modal visual comparison](docs/YOLOV8_vis.png)
 
 ### 7.2 M2D-LIF Training Loss Logs
 
@@ -291,13 +291,13 @@ The following figure compares GPU memory usage during training. It is used to an
 
 The following figure shows the mAP50 and mAP50-95 curves. The comparison includes single-modal baselines and the reproduced M2D-LIF dual-modal model. These curves are used to analyze the accuracy trend across epochs.
 
-![M2D-LIF mAP comparison](docs/assets/readme/m2dlif_map_comparison.png)
+![M2D-LIF mAP comparison](docs/map50_comparison.png)
 
 ### 7.5 M2D-LIF Dual-Modal Visualization
 
 The following visualization shows representative dual-modal detection results of the M2D-LIF branch. The results are shown in a concatenated RGB/IR view to make the visible-infrared correspondence easier to inspect.
 
-![M2D-LIF dual-modal visual comparison](docs/assets/readme/m2dlif_visual_comparison.png)
+![M2D-LIF dual-modal visual comparison](docs/M2D-LIF_vis.png)
 
 ## 8. Citation
 
