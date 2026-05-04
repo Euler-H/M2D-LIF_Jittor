@@ -1,4 +1,4 @@
-# Jittor M2D-LIF
+[# Jittor M2D-LIF
 
 This repository provides a Jittor-based reproduction and extension of **M2D-LIF** for visible-infrared oriented object detection. The implementation is built on top of **JDet**, and first ports the YOLOv8-OBB detection framework to Jittor. Based on this single-modal YOLOv8-OBB detector, the repository further implements a dual-modal M2D-LIF-style distillation framework for the DroneVehicle dataset.
 
@@ -166,11 +166,11 @@ Before running, check the following items in the config file:
 Example command for validating a single-modal checkpoint:
 
 ```bash
-PYTHONPATH=/root/JDet/python python val_jittor_single_obb_map.py \
-  --weights /root/JDet/work_dirs/RGB-full.pkl \
-  --source /root/JDet/5000-DroneVehice/images/val \
-  --label-dir /root/JDet/5000-DroneVehice/labels/val \
-  --cfg /root/JDet/projects/yolov8_obb/configs/yolo_configs/yolov8n_obb.yaml \
+PYTHONPATH=/root/M2D-LIF_Jittor/python python val_jittor_single_obb_map.py \
+  --weights /root/M2D-LIF_Jittor/work_dirs/RGB-full.pkl \
+  --source /root/M2D-LIF_Jittor/5000-DroneVehice/images/val \
+  --label-dir /root/M2D-LIF_Jittor/5000-DroneVehice/labels/val \
+  --cfg /root/M2D-LIF_Jittor/projects/yolov8_obb/configs/yolo_configs/yolov8n_obb.yaml \
   --imgsz 640 \
   --scale n \
   --nc 5 \
@@ -186,11 +186,11 @@ For infrared validation, change `--source` to the corresponding `images_ir/val` 
 Example command for visualizing single-modal predictions:
 
 ```bash
-PYTHONPATH=/root/JDet/python python tools/vis_single_yolov8_obb_pred.py \
-  --weights /root/JDet/work_dirs/RGB-full.pkl \
-  --source /root/JDet/5000-DroneVehice/images/val \
-  --cfg /root/JDet/projects/yolov8_obb/configs/yolo_configs/yolov8n_obb.yaml \
-  --out-dir /root/JDet/runs/vis_single_rgb \
+PYTHONPATH=/root/M2D-LIF_Jittor/python python tools/vis_single_yolov8_obb_pred.py \
+  --weights /root/M2D-LIF_Jittor/work_dirs/RGB-full.pkl \
+  --source /root/M2D-LIF_Jittor/5000-DroneVehice/images/val \
+  --cfg /root/M2D-LIF_Jittor/projects/yolov8_obb/configs/yolo_configs/yolov8n_obb.yaml \
+  --out-dir /root/M2D-LIF_Jittor/runs/vis_single_rgb \
   --imgsz 640 \
   --scale n \
   --nc 5 \
@@ -215,8 +215,8 @@ The dual-modal branch takes RGB and infrared images as paired inputs and trains 
 Example command:
 
 ```bash
-PYTHONPATH=/root/JDet/jittor-yolov8/python python /root/JDet/jittor-yolov8/projects/yolov8_obb/run_net.py \
-  --config-file /root/JDet/jittor-yolov8/projects/yolov8_obb/configs/yolov8n_obb_DroneVehicle_M2D-LIF.py
+PYTHONPATH=/root/M2D-LIF_Jittor/jittor-yolov8/python python /root/M2D-LIF_Jittor/jittor-yolov8/projects/yolov8_obb/run_net.py \
+  --config-file /root/M2D-LIF_Jittor/jittor-yolov8/projects/yolov8_obb/configs/yolov8n_obb_DroneVehicle_M2D-LIF.py
 ```
 
 Before training, check the config file carefully, especially:
@@ -237,12 +237,12 @@ Before training, check the config file carefully, especially:
 Example command:
 
 ```bash
-PYTHONPATH=/root/JDet/jittor-yolov8/python python /root/JDet/jittor-yolov8/val_jittor_m2dlif_obb_map.py \
-  --weights /root/JDet/work_dirs/DroneVehicle_M2D-LIF/checkpoints/best.pkl \
-  --source /root/JDet/test/images \
-  --ir-root /root/JDet/test/images_ir \
-  --label-dir /root/JDet/test/labels \
-  --cfg /root/JDet/jittor-yolov8/projects/yolov8_obb/configs/yolo_configs/yolov8n_LIF_obb.yaml \
+PYTHONPATH=/root/M2D-LIF_Jittor/jittor-yolov8/python python /root/M2D-LIF_Jittor/jittor-yolov8/val_jittor_m2dlif_obb_map.py \
+  --weights /root/M2D-LIF_Jittor/work_dirs/DroneVehicle_M2D-LIF/checkpoints/best.pkl \
+  --source /root/M2D-LIF_Jittor/test/images \
+  --ir-root /root/M2D-LIF_Jittor/test/images_ir \
+  --label-dir /root/M2D-LIF_Jittor/test/labels \
+  --cfg /root/M2D-LIF_Jittor/jittor-yolov8/projects/yolov8_obb/configs/yolo_configs/yolov8n_LIF_obb.yaml \
   --imgsz 640 \
   --scale n \
   --nc 5 \
@@ -256,11 +256,11 @@ PYTHONPATH=/root/JDet/jittor-yolov8/python python /root/JDet/jittor-yolov8/val_j
 Example command:
 
 ```bash
-PYTHONPATH=/root/JDet/jittor-yolov8/python python tools/vis_m2d_lif_obb_pred.py \
-  --weights /root/JDet/work_dirs/DroneVehicle_M2D-LIF/checkpoints/best.pkl \
-  --source /root/JDet/test/images \
+PYTHONPATH=/root/M2D-LIF_Jittor/jittor-yolov8/python python tools/vis_m2d_lif_obb_pred.py \
+  --weights /root/M2D-LIF_Jittor/work_dirs/DroneVehicle_M2D-LIF/checkpoints/best.pkl \
+  --source /root/M2D-LIF_Jittor/test/images \
   --view-modal concat \
-  --out-dir /root/JDet/jittor-yolov8/runs/vis_concat
+  --out-dir /root/M2D-LIF_Jittor/jittor-yolov8/runs/vis_concat
 ```
 
 The `--view-modal concat` option is used to visualize the dual-modal prediction result in a concatenated RGB/IR view.
@@ -319,3 +319,4 @@ The following figure compares GPU memory usage during training. It is used to an
 - [Ultralytics YOLO](https://github.com/ultralytics/ultralytics)
 - [M2D-LIF](https://github.com/Zhao-Tian-yi/M2D-LIF)
 - [DroneVehicle dataset](https://github.com/VisDrone/DroneVehicle)
+](https://blog.csdn.net/qq_52551375/article/details/154406392?ops_request_misc=elastic_search_misc&request_id=f6fe4db15779a888a3414679094fb35f&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-154406392-null-null.142^v102^pc_search_result_base4&utm_term=dronevehicle%E6%95%B0%E6%8D%AE%E9%9B%86%E5%91%A8%E5%9B%B4%E7%99%BD%E8%BE%B9&spm=1018.2226.3001.4187)
