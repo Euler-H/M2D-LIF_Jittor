@@ -2,8 +2,8 @@
 
 This repository provides a Jittor-based reproduction and extension of **M2D-LIF** for visible-infrared oriented object detection. The implementation is built on top of **JDet**, and first ports the YOLOv8-OBB detection framework to Jittor. Based on this single-modal YOLOv8-OBB detector, the repository further implements a dual-modal M2D-LIF-style distillation framework for the DroneVehicle dataset.
 
-> Original M2D-LIF repository: <https://github.com/Zhao-Tian-yi/M2D-LIF>  
-> JDet repository: <https://github.com/Jittor/JDet>
+> [Original M2D-LIF repository](https://github.com/Zhao-Tian-yi/M2D-LIF)  
+> [JDet repository](https://github.com/Jittor/JDet)
 
 ## 1. Project Overview
 
@@ -105,11 +105,11 @@ freight_car
 
 The DroneVehicle dataset can be downloaded from the following BaiduYun links:
 
-- Train: <https://pan.baidu.com/s/1ptZCJ1mKYqFnMnsgqEyoGg>  
+- [Train](https://pan.baidu.com/s/1ptZCJ1mKYqFnMnsgqEyoGg)  
   Extraction code: `ngar`
-- Validation: <https://pan.baidu.com/s/1e6e9mESZecpME4IEdU8t3Q>  
+- [Validation](https://pan.baidu.com/s/1e6e9mESZecpME4IEdU8t3Q)  
   Extraction code: `jnj6`
-- Test: <https://pan.baidu.com/s/1JlXO4jEUQgkR1Vco1hfKhg>  
+- [Test](https://pan.baidu.com/s/1JlXO4jEUQgkR1Vco1hfKhg)  
   Extraction code: `tqwc`
 
 After downloading the dataset, please adjust the dataset root and split paths in the corresponding config files.
@@ -122,7 +122,7 @@ Before training, preprocess the original DroneVehicle dataset with:
 python /root/M2D-LIF_Jittor/tools/pre.py
 ```
 
-This script crops the images in the DroneVehicle dataset into $640 \times 640$ patches.
+This script crops the images in the DroneVehicle dataset into $640 \times 640$ patches [CSDN](https://blog.csdn.net/qq_52551375/article/details/154406392?ops_request_misc=elastic_search_misc&request_id=f6fe4db15779a888a3414679094fb35f&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~all~sobaiduend~default-1-154406392-null-null.142^v102^pc_search_result_base4&utm_term=dronevehicle%E6%95%B0%E6%8D%AE%E9%9B%86%E5%91%A8%E5%9B%B4%E7%99%BD%E8%BE%B9&spm=1018.2226.3001.4187).
 
 After preprocessing, select the first 5000 images from the training set with:
 
@@ -270,7 +270,7 @@ The `--view-modal concat` option is used to visualize the dual-modal prediction 
 Trained weights are provided through BaiduYun:
 
 - File: `M2D-LIF_Jittor_weights`
-- Link: <https://pan.baidu.com/s/1u2xalvD3TuqOy45XGPFWGA>
+- [Link](https://pan.baidu.com/s/1u2xalvD3TuqOy45XGPFWGA)
 - Extraction code: `2605`
 
 ## 7. Experimental Logs and Performance Comparison
