@@ -1,13 +1,8 @@
 '''
-Author: Feng
-Date: 2026-04-27 16:28:18
-LastEditors: Do not edit
-LastEditTime: 2026-04-27 16:30:27
-FilePath: \Jittor-yolov8_augmented\Jittor-yolov8\preprocess.py
-Description: 
+Reference:
 '''
 # Description: This script is used to crop the images in the dataset.
-#  我们需要将DroneVehicle数据集裁剪到640*640
+# 我们需要将DroneVehicle数据集裁剪到640*640
 import numpy as np
 import cv2
 import os
