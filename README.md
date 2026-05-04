@@ -130,9 +130,9 @@ After preprocessing, select the first 5000 images from the training set with:
 python /root/M2D-LIF_Jittor/move.py
 ```
 
-This script constructs the \texttt{5000-DroneVehice} subset used in the experiments.
+This script constructs the 5000-DroneVehice subset used in the experiments.
 
-Please make sure the dataset paths in \texttt{pre.py}, \texttt{move.py}, and the related config files are modified according to your local environment before running the scripts.
+Please make sure the dataset paths in `pre.py`, `move.py`, and the related config files are modified according to your local environment before running the scripts.
 
 ## 4. Single-Modal YOLOv8-OBB
 
