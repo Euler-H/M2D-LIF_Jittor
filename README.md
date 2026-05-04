@@ -289,9 +289,9 @@ The following figure compares GPU memory usage during training. It is used to an
 
 ### 7.4 Detection Performance Curves
 
-The following figure shows the mAP50 and mAP50-95 curves. The comparison includes single-modal baselines and the reproduced M2D-LIF dual-modal model. These curves are used to analyze the accuracy trend across epochs.
+The following figure shows the mAP50 curves. The comparison includes single-modal baselines and the reproduced M2D-LIF dual-modal model. These curves are used to analyze the accuracy trend across epochs.
 
-![M2D-LIF mAP comparison](docs/map50_95_comparison.png)
+![M2D-LIF mAP comparison](docs/map50_comparison.png)
 
 ### 7.5 M2D-LIF Dual-Modal Visualization
 
