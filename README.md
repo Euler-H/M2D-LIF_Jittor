@@ -114,23 +114,23 @@ The DroneVehicle dataset can be downloaded from the following BaiduYun links:
 
 After downloading the dataset, please adjust the dataset root and split paths in the corresponding config files.
 
-\subsection{Dataset Preprocessing}
+### Dataset Preprocessing
 
 Before training, preprocess the original DroneVehicle dataset with:
 
-\begin{verbatim}
+```bash
 python /root/M2D-LIF_Jittor/tools/pre.py
-\end{verbatim}
+```
 
-This script crops the images in the DroneVehicle dataset into $640 \times 640$ patches and generates the corresponding OBB label files.
+This script crops the images in the DroneVehicle dataset into $640 \times 640$ patches.
 
 After preprocessing, select the first 5000 images from the training set with:
 
-\begin{verbatim}
+```bash
 python /root/M2D-LIF_Jittor/move.py
-\end{verbatim}
+```
 
-This script constructs the \texttt{5000-DroneVehice} subset used in the experiments, including the paired visible-light images, infrared images, labels, and the corresponding \texttt{train.txt} / \texttt{val.txt} split files.
+This script constructs the \texttt{5000-DroneVehice} subset used in the experiments.
 
 Please make sure the dataset paths in \texttt{pre.py}, \texttt{move.py}, and the related config files are modified according to your local environment before running the scripts.
 
