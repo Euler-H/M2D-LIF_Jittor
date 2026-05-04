@@ -1,4 +1,4 @@
-[# Jittor M2D-LIF
+Jittor M2D-LIF
 
 This repository provides a Jittor-based reproduction and extension of **M2D-LIF** for visible-infrared oriented object detection. The implementation is built on top of **JDet**, and first ports the YOLOv8-OBB detection framework to Jittor. Based on this single-modal YOLOv8-OBB detector, the repository further implements a dual-modal M2D-LIF-style distillation framework for the DroneVehicle dataset.
 
