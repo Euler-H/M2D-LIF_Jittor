@@ -1,9 +1,6 @@
 # Jittor M2D-LIF
 
-This repository provides a Jittor-based reproduction and extension of **M2D-LIF** for visible-infrared drone object detection. The implementation is built on top of **JDet**, and first ports the YOLOv8-OBB detection framework to Jittor. Based on this single-modal YOLOv8-OBB detector, the repository further implements a dual-modal M2D-LIF-style distillation framework for the DroneVehicle dataset.
-
-> [Original M2D-LIF repository](https://github.com/Zhao-Tian-yi/M2D-LIF)  
-> [JDet repository](https://github.com/Jittor/JDet)
+This repository provides a Jittor-based reproduction and extension of [Rethinking Multi-modal Object Detection from the Perspective of Mono-Modality Feature Learning](https://openaccess.thecvf.com/content/ICCV2025/html/Zhao_Rethinking_Multi-modal_Object_Detection_from_the_Perspective_of_Mono-Modality_Feature_ICCV_2025_paper.html) for visible-infrared drone object detection. The implementation is built on top of [JDet](https://github.com/Jittor/JDet), and first ports the YOLOv8-OBB detection framework to Jittor. Based on this single-modal YOLOv8-OBB detector, the repository further implements a dual-modal M2D-LIF-style distillation framework for the DroneVehicle dataset.
 
 ## 1. Project Overview
 
