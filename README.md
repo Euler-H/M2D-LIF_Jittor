@@ -279,7 +279,7 @@ The following figure shows representative single-modal YOLOv8-OBB oriented detec
 
 The following figure records the main loss curves during M2D-LIF training, including the detection loss and additional distillation-related losses. These logs are useful for checking whether the dual-modal student model is optimized normally and whether the distillation terms remain numerically stable.
 
-![M2D-LIF loss comparison](docs/assets/readme/m2dlif_loss_comparison.png)
+![M2D-LIF loss comparison](docs/3_loss.png)
 
 ### 7.3 GPU Memory Usage Logs
 
@@ -291,7 +291,7 @@ The following figure compares GPU memory usage during training. It is used to an
 
 The following figure shows the mAP50 and mAP50-95 curves. The comparison includes single-modal baselines and the reproduced M2D-LIF dual-modal model. These curves are used to analyze the accuracy trend across epochs.
 
-![M2D-LIF mAP comparison](docs/map50_comparison.png)
+![M2D-LIF mAP comparison](docs/map50_95_comparison.png)
 
 ### 7.5 M2D-LIF Dual-Modal Visualization
 
