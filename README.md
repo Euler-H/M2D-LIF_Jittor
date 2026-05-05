@@ -147,7 +147,7 @@ python projects/yolov8_obb/run_net.py \
   --config-file projects/yolov8_obb/configs/yolov8n_obb_dronevehicle_teacher.py
 ```
 
-This trains a single-modal YOLOv8-OBB teacher model.
+This trains a single-modal YOLOv8-OBB teacher model on the full DroneVehicle training set for 200 epochs.
 
 Before running, check the following items in the config file:
 
@@ -168,8 +168,8 @@ Example command for validating a single-modal checkpoint:
 ```bash
 PYTHONPATH=/root/M2D-LIF_Jittor/python python val_jittor_single_obb_map.py \
   --weights /root/M2D-LIF_Jittor/work_dirs/RGB-full.pkl \
-  --source /root/M2D-LIF_Jittor/5000-DroneVehice/images/val \
-  --label-dir /root/M2D-LIF_Jittor/5000-DroneVehice/labels/val \
+  --source /root/M2D-LIF_Jittor/DroneVehice/images/val \
+  --label-dir /root/M2D-LIF_Jittor/DroneVehice/labels/val \
   --cfg /root/M2D-LIF_Jittor/projects/yolov8_obb/configs/yolo_configs/yolov8n_obb.yaml \
   --imgsz 640 \
   --scale n \
@@ -188,7 +188,7 @@ Example command for visualizing single-modal predictions:
 ```bash
 PYTHONPATH=/root/M2D-LIF_Jittor/python python tools/vis_single_yolov8_obb_pred.py \
   --weights /root/M2D-LIF_Jittor/work_dirs/RGB-full.pkl \
-  --source /root/M2D-LIF_Jittor/5000-DroneVehice/images/val \
+  --source /root/M2D-LIF_Jittor/DroneVehice/images/val \
   --cfg /root/M2D-LIF_Jittor/projects/yolov8_obb/configs/yolo_configs/yolov8n_obb.yaml \
   --out-dir /root/M2D-LIF_Jittor/runs/vis_single_rgb \
   --imgsz 640 \
