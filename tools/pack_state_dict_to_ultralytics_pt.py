@@ -9,14 +9,6 @@ Input:
 
 Output:
     Ultralytics-style .pt containing {"model": model, ...}
-
-单模态OBByaml: /root/M2D-LIF/teacherTraining/ultralytics/cfg/models/v8/yolov8-obb.yaml 
-
-python /root/M2D-LIF/tools/pack_state_dict_to_ultralytics_pt.py \
-    --state_ckpt /root/M2D-LIF/weights/IR-full.pt \
-    --model_yaml /root/M2D-LIF/teacherTraining/ultralytics/cfg/models/v8/yolov8-obb.yaml \
-    --out /root/M2D-LIF/weights/ultralytics_IR-full.pt \
-    --task obb
 """
 ###########################################################################################################
 
