@@ -6,17 +6,22 @@ This repository provides a Jittor-based reproduction and extension of [Rethinkin
 
 The main goal of this repository is to reproduce the core training and inference pipeline of M2D-LIF under the Jittor deep learning framework.
 
-The implementation contains two main parts:
+The implementation contains three main parts:
 
 1. **Jittor YOLOv8-OBB**
    - Implements a YOLOv8-style oriented object detector based on JDet.
-   - Supports DroneVehicle-style OBB labels.
+   - Supports OBB labels.
    - Provides training, validation, and visualization scripts for single-modal RGB or infrared detection.
 
 2. **Jittor M2D-LIF**
    - Extends the Jittor YOLOv8-OBB detector to a visible-infrared dual-modal detection framework.
    - Uses single-modal teacher models to guide dual-modal student training.
    - Provides training, validation, and visualization scripts for dual-modal OBB detection.
+
+3. **Jittor-to-PyTorch Weight Conversion**
+   - Provides scripts to convert Jittor `.pkl` checkpoints into PyTorch `.pt` checkpoints.
+   - Supports cross-framework validation with Ultralytics YOLOv8-OBB.
+   - Helps verify the consistency of Jittor-trained models under the PyTorch/Ultralytics evaluation pipeline.
 
 ## 2. Tested Environment
 
@@ -260,7 +265,38 @@ PYTHONPATH=/root/M2D-LIF_Jittor/jittor-yolov8/python python tools/vis_m2d_lif_ob
 
 The `--view-modal concat` option is used to visualize the dual-modal prediction result in a concatenated RGB/IR view.
 
-## 6. Checkpoint Notes
+## 6. Jittor-to-PyTorch Weight Conversion
+
+This project provides conversion scripts to migrate Jittor `.pkl` checkpoints into PyTorch `.pt` checkpoints, so that Jittor-trained YOLOv8-OBB models can be evaluated or visualized under the Ultralytics YOLOv8-OBB pipeline.
+
+The conversion contains two steps:
+
+1. Convert the Jittor `.pkl` checkpoint into a PyTorch state-dict `.pt` file.
+2. Pack the converted state dict into an Ultralytics-compatible YOLOv8-OBB `.pt` checkpoint.
+
+### 6.1 Convert Jittor `.pkl` to PyTorch `.pt`
+
+Example command:
+
+```bash
+python /root/M2D-LIF/tools/jittor_pkl_to_pt.py \
+  --jittor_ckpt /root/M2D-LIF/weights/IR-full.pkl \
+  --torch_ckpt /root/M2D-LIF/weights/IR-full.pt
+```
+
+### 6.2 Pack State Dict into Ultralytics YOLOv8-OBB Checkpoint
+
+Example command:
+
+```bash
+python /root/M2D-LIF/tools/pack_state_dict_to_ultralytics_pt.py \
+  --state_ckpt /root/M2D-LIF/weights/IR-full.pt \
+  --model_yaml /root/M2D-LIF/teacherTraining/ultralytics/cfg/models/v8/yolov8-obb.yaml \
+  --out /root/M2D-LIF/weights/ultralytics_IR-full.pt \
+  --task obb
+```
+
+## 7. Checkpoint Notes
 
 Trained weights are provided through BaiduYun:
 
@@ -268,46 +304,56 @@ Trained weights are provided through BaiduYun:
 - [Link](https://pan.baidu.com/s/1u2xalvD3TuqOy45XGPFWGA)
 - Extraction code: `2605`
 
-## 7. Experimental Logs and Performance Comparison
+## 8. Experimental Logs and Performance Comparison
 
 This section provides representative experimental logs and qualitative visualization results. The figures are intended to document the training trend, GPU memory behavior, detection accuracy, and visual detection results obtained during the reproduction process.
 
 > Note: The current repository is a research reproduction and extension codebase. The reported curves are used to describe the reproduced experimental behavior under the tested environment. Since the Jittor and PyTorch validation implementations may not be completely identical, the curves should be interpreted as experimental logs rather than a strictly unified benchmark.
 
-### 7.1 Detection Performance Curves
+### 8.1 Cross-Framework Validation Results
+
+Table 1 shows the validation performance comparison among the original PyTorch implementation, the Jittor implementation, and the converted `.pkl` to `.pt` checkpoint evaluated under the PyTorch/Ultralytics pipeline.
+
+**Table 1. Comparison of the performance measured by mAP50, mAP50-95 on the DroneVehicle val dataset.**
+
+| Metric | Pytorch | Jittor | .pkl to .pt |
+|---|---:|---:|---:|
+| mAP50 | 0.515 | **0.562** | 0.550 |
+| mAP50-95 | 0.403 | **0.446** | 0.432 |
+
+### 8.2 Detection Performance Curves
 
 The following figure shows the mAP50-95 curves. The comparison includes single-modal baselines and the reproduced M2D-LIF dual-modal model. These curves are used to analyze the accuracy trend across epochs.
 
 ![M2D-LIF mAP comparison](docs/map50_95_comparison.png)
 
-### 7.2 YOLOv8-OBB Single-Modal Detection Visualization
+### 8.3 YOLOv8-OBB Single-Modal Detection Visualization
 
 The following figure shows representative single-modal YOLOv8-OBB oriented detection results. It is mainly used to verify that the Jittor YOLOv8-OBB detector can correctly perform oriented bounding box prediction on DroneVehicle-style aerial images.
 
 ![YOLOv8-OBB single-modal visual comparison](docs/YOLOV8_vis.png)
 
-### 7.3 M2D-LIF Dual-Modal Visualization
+### 8.4 M2D-LIF Dual-Modal Visualization
 
 The following visualization shows representative dual-modal detection results of the M2D-LIF branch. The results are shown in a concatenated RGB/IR view to make the visible-infrared correspondence easier to inspect.
 
 ![M2D-LIF dual-modal visual comparison](docs/M2D-LIF_vis.png)
 
-### 7.4 M2D-LIF Training Loss Logs
+### 8.5 M2D-LIF Training Loss Logs
 
 The following figure records the main loss curves during M2D-LIF training, including the detection loss and additional distillation-related losses. These logs are useful for checking whether the dual-modal student model is optimized normally and whether the distillation terms remain numerically stable.
 
 ![M2D-LIF loss comparison](docs/3_loss.png)
 ![M2D-LIF loss comparison](docs/distill_loss.png)
 
-### 7.5 GPU Memory Usage Logs
+### 8.6 GPU Memory Usage Logs
 
 The following figure compares GPU memory usage during training. It is used to analyze the runtime cost of the reproduced Jittor implementation, especially under the dual-modal M2D-LIF setting where two modalities and teacher-guided feature distillation are involved.
 
 ![M2D-LIF GPU memory comparison](docs/m2dlif_gpu_memory_comparison.png)
 
 
-
-## 8. Reference
+## 9. Reference
 
 - [Jittor](https://github.com/Jittor)
 - [JDet](https://github.com/Jittor/JDet)
