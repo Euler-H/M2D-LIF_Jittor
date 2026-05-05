@@ -47,7 +47,7 @@ def move_first_n_files(src_dir, dst_dir, n=5000):
 
 
 if __name__ == "__main__":
-    src_folder = r"/root/JDet/DV-full/labels/val"
-    dst_folder = r"/root/JDet/5000-DroneVehice/labels/val"
+    src_folder = r"/root/M2D-LIF_Jittor/DroneVehicle/labels/val"
+    dst_folder = r"/root/M2D-LIF_Jittor/5000-DroneVehice/labels/val"
 
     move_first_n_files(src_folder, dst_folder, n=5000)
