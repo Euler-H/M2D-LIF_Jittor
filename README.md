@@ -112,7 +112,7 @@ The DroneVehicle dataset can be downloaded from the following BaiduYun links:
 - [Test](https://pan.baidu.com/s/1JlXO4jEUQgkR1Vco1hfKhg)  
   Extraction code: `tqwc`
 
-After downloading the dataset, please adjust the dataset root and split paths in the corresponding config files.
+The datasets labels can [download](https://pan.baidu.com/s/1NBDTPIgdlvnARiO_Uy8c-w?pwd=ir9b) here.
 
 ### Dataset Preprocessing
 
