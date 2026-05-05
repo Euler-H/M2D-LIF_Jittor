@@ -1,9 +1,5 @@
 """
 Convert Jittor .pkl checkpoint to PyTorch .pt checkpoint.
-
-python /root/M2D-LIF/tools/jittor_pkl_to_pt.py \
-    --jittor_ckpt /root/M2D-LIF/weights/IR-full.pkl \
-    --torch_ckpt /root/M2D-LIF/weights/IR-full.pt 
 """
 
 
