@@ -318,6 +318,8 @@ Table 1 shows the validation performance comparison among the original PyTorch i
 
 The teacher backbone checkpoint was trained on the full DroneVehicle training set for 200 epochs.
 
+The M2D-LIF checkpoint was trained on the 5000-DroneVehicle training set for 100 epochs.
+
 **Table 1. Comparison of the performance measured by mAP50, mAP50-95 on the DroneVehicle val dataset.**
 
 | Metric | Pytorch | Jittor | .pkl to .pt |
