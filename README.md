@@ -314,6 +314,8 @@ This section provides representative experimental logs and qualitative visualiza
 
 Table 1 shows the validation performance comparison among the original PyTorch implementation, the Jittor implementation, and the converted `.pkl` to `.pt` checkpoint evaluated under the PyTorch/Ultralytics pipeline.
 
+The teacher backbone checkpoint was trained on the full DroneVehicle training set for 200 epochs.
+
 **Table 1. Comparison of the performance measured by mAP50, mAP50-95 on the DroneVehicle val dataset.**
 
 | Metric | Pytorch | Jittor | .pkl to .pt |
