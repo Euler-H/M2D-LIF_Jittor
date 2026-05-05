@@ -24,19 +24,16 @@ debug_train_stall = False
 debug_batch_start = 70
 debug_batch_end = 100
 
-# Paired RGB path: /root/JDet/DV-full/images/train/xxx.jpg
-# Paired IR path is inferred as /root/JDet/DV-full/images_ir/train/xxx.jpg
-# If your folder name is different, either rename/symlink it to images_ir or override _ir_path in YoloOBBMultiModalDataset.
 dataset_type = "YoloOBBMultiModalDataset"
 
 model = dict(
     type="YOLOv8OBBM2DLIF",
-    cfg="/root/JDet/jittor-yolov8/projects/yolov8_obb/configs/yolo_configs/yolov8n_LIF_obb.yaml",
-    teacher_rgb_cfg="/root/JDet/jittor-yolov8/projects/yolov8_obb/configs/yolo_configs/yolov8n_obb.yaml",
-    teacher_ir_cfg="/root/JDet/jittor-yolov8/projects/yolov8_obb/configs/yolo_configs/yolov8n_obb.yaml",
+    cfg="/root/M2D-LIF_Jittor/jittor-yolov8/projects/yolov8_obb/configs/yolo_configs/yolov8n_LIF_obb.yaml",
+    teacher_rgb_cfg="/root/M2D-LIF_Jittor/jittor-yolov8/projects/yolov8_obb/configs/yolo_configs/yolov8n_obb.yaml",
+    teacher_ir_cfg="/root/M2D-LIF_Jittor/jittor-yolov8/projects/yolov8_obb/configs/yolo_configs/yolov8n_obb.yaml",
     # Replace with your trained teacher pkl files.
-    teacher_rgb_ckpt="/root/JDet/work_dirs/RGB-full.pkl",
-    teacher_ir_ckpt="/root/JDet/work_dirs/IR-full.pkl",
+    teacher_rgb_ckpt="/root/M2D-LIF_Jittor/work_dirs/RGB-full.pkl",
+    teacher_ir_ckpt="/root/M2D-LIF_Jittor/work_dirs/IR-full.pkl",
     ch=6,
     nc=5,
     imgsz=imgsz,
@@ -67,7 +64,7 @@ scheduler = dict(
 dataset = dict(
     train=dict(
         type=dataset_type,
-        path="/root/JDet/5000-DroneVehice/train.txt",
+        path="/root/M2D-LIF_Jittor/5000-DroneVehice/train.txt",
         task="train",
         batch_size=batch_size,
         num_workers=4,
@@ -89,7 +86,7 @@ dataset = dict(
     ),
     val=dict(
         type=dataset_type,
-        path="/root/JDet/5000-DroneVehice/val.txt",
+        path="/root/M2D-LIF_Jittor/5000-DroneVehice/val.txt",
         task="val",
         batch_size=batch_size,
         num_workers=4,
@@ -102,7 +99,7 @@ dataset = dict(
     ),
     test=dict(
         type=dataset_type,
-        path="/root/JDet/5000-DroneVehice/val.txt",
+        path="",
         task="test",
         batch_size=batch_size,
         num_workers=4,
