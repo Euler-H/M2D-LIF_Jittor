@@ -9,43 +9,6 @@ This script follows the drawing style of the Jittor M2D-LIF visualization script
     - PNG output with no compression by default
 
 It is used for the single-modal Jittor YOLOv8-OBB model in Jittor-yolov8-OBB.zip.
-
-Example: RGB teacher
-
-
-PYTHONPATH=/root/JDet/python \
-python tools/vis_single_yolov8_obb_pred.py \
-  --weights /root/JDet/work_dirs/RGB-full.pkl \
-  --source /root/JDet/5000-DroneVehice/images/val \
-  --cfg /root/JDet/projects/yolov8_obb/configs/yolo_configs/yolov8n_obb.yaml \
-  --out-dir /root/JDet/runs/vis_single_rgb \
-  --imgsz 640 \
-  --scale n \
-  --nc 5 \
-  --conf 0.25 \
-  --iou 0.7 \
-  --use-cuda 1 \
-  --names "car,truck,bus,van,freight_car"
-
-
-Example: with GT and compare images
-
-cd /root/JDet/jittor-yolov8
-
-PYTHONPATH=/root/JDet/jittor-yolov8/python \
-python tools/vis_single_yolov8_obb_pred.py \
-  --weights /root/JDet/work_dirs/yolov8n_obb_dronevehicle_rgb_teacher/checkpoints/best.pkl \
-  --source /root/JDet/5000-DroneVehice/images/val \
-  --label-dir /root/JDet/5000-DroneVehice/labels/val \
-  --cfg /root/JDet/jittor-yolov8/projects/yolov8_obb/configs/yolo_configs/yolov8n_obb.yaml \
-  --out-dir /root/JDet/jittor-yolov8/runs/vis_single_rgb_with_gt \
-  --imgsz 640 \
-  --scale n \
-  --nc 5 \
-  --conf 0.25 \
-  --iou 0.7 \
-  --use-cuda 1 \
-  --names "car,truck,bus,van,freight_car"
 """
 
 import os
