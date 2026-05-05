@@ -274,14 +274,16 @@ The conversion contains two steps:
 1. Convert the Jittor `.pkl` checkpoint into a PyTorch state-dict `.pt` file.
 2. Pack the converted state dict into an Ultralytics-compatible YOLOv8-OBB `.pt` checkpoint.
 
+Please run the following conversion commands in the PyTorch/Ultralytics environment.
+
 ### 6.1 Convert Jittor `.pkl` to PyTorch `.pt`
 
 Example command:
 
 ```bash
-python /root/M2D-LIF/tools/jittor_pkl_to_pt.py \
-  --jittor_ckpt /root/M2D-LIF/weights/IR-full.pkl \
-  --torch_ckpt /root/M2D-LIF/weights/IR-full.pt
+python /root/M2D-LIF_Jittor/tools/jittor_pkl_to_pt.py \
+  --jittor_ckpt /root/M2D-LIF_Jittor/weights/IR-full.pkl \
+  --torch_ckpt /root/M2D-LIF_Jittor/weights/IR-full.pt
 ```
 
 ### 6.2 Pack State Dict into Ultralytics YOLOv8-OBB Checkpoint
@@ -289,10 +291,10 @@ python /root/M2D-LIF/tools/jittor_pkl_to_pt.py \
 Example command:
 
 ```bash
-python /root/M2D-LIF/tools/pack_state_dict_to_ultralytics_pt.py \
-  --state_ckpt /root/M2D-LIF/weights/IR-full.pt \
-  --model_yaml /root/M2D-LIF/teacherTraining/ultralytics/cfg/models/v8/yolov8-obb.yaml \
-  --out /root/M2D-LIF/weights/ultralytics_IR-full.pt \
+python /root/M2D-LIF_Jittor/tools/pack_state_dict_to_ultralytics_pt.py \
+  --state_ckpt /root/M2D-LIF_Jittor/weights/IR-full.pt \
+  --model_yaml /root/M2D-LIF_Jittor/teacherTraining/ultralytics/cfg/models/v8/yolov8-obb.yaml \
+  --out /root/M2D-LIF_Jittor/weights/ultralytics_IR-full.pt \
   --task obb
 ```
 
