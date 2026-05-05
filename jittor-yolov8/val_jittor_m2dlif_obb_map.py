@@ -9,16 +9,6 @@ Expected RGB/IR file pairing:
 Expected label format per line:
     cls x1 y1 x2 y2 x3 y3 x4 y4
 where polygon coordinates are normalized to [0, 1].
-
-Example:
-PYTHONPATH=/root/JDet/jittor-yolov8/python \
-python /root/JDet/jittor-yolov8/val_jittor_m2dlif_obb_map.py \
-  --weights /root/JDet/work_dirs/DroneVehicle_M2D-LIF/checkpoints/best.pkl \
-  --source /root/JDet/test/images \
-  --ir-root /root/JDet/test/images_ir \
-  --label-dir /root/JDet/test/labels \
-  --cfg /root/JDet/jittor-yolov8/projects/yolov8_obb/configs/yolo_configs/yolov8n_LIF_obb.yaml \
-  --imgsz 640 --scale n --nc 5 --conf 0.25 --iou 0.7 --use-cuda 1
 """
 
 import os
