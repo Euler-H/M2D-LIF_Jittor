@@ -31,7 +31,7 @@ dataset_type = "YoloOBBDataset"
 
 model = dict(
     type="YOLOv8OBB",
-    cfg="/root/JDet/projects/yolov8_obb/configs/yolo_configs/yolov8n_obb.yaml",
+    cfg="/root/M2D-LIF_Jittor/projects/yolov8_obb/configs/yolo_configs/yolov8n_obb.yaml",
     ch=3,
     nc=5,
     imgsz=imgsz,
@@ -57,7 +57,7 @@ scheduler = dict(
 dataset = dict(
     train=dict(
         type=dataset_type,
-        path="/root/JDet/5000-DroneVehice/train.txt",
+        path="/root/M2D-LIF_Jittor/DroneVehice/train.txt",
         task="train",
         batch_size=batch_size,
         num_workers=8,
@@ -79,7 +79,7 @@ dataset = dict(
     ),
     val=dict(
         type=dataset_type,
-        path="/root/JDet/5000-DroneVehice/val.txt",
+        path="/root/M2D-LIF_Jittor/DroneVehice/val.txt",
         task="val",
         batch_size=batch_size,
         num_workers=8,
@@ -92,7 +92,7 @@ dataset = dict(
     ),
     test=dict(
         type=dataset_type,
-        path="/root/JDet/5000-DroneVehice/val.txt",
+        path="",
         task="test",
         batch_size=batch_size,
         num_workers=8,
@@ -116,4 +116,4 @@ logger = dict(
     type="RunLogger"
 )
 work_dir = "./work_dirs/RGB_GPU-LOG-64"
-# work_dir = "./work_dirs/yolov8m_obb_dronevehicle_rgb_teacher"
+# work_dir = "./work_dirs/yolov8n_obb_dronevehicle_rgb_teacher"
