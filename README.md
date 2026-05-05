@@ -312,7 +312,7 @@ This section provides representative experimental logs and qualitative visualiza
 
 > Note: The current repository is a research reproduction and extension codebase. The reported curves are used to describe the reproduced experimental behavior under the tested environment. Since the Jittor and PyTorch validation implementations may not be completely identical, the curves should be interpreted as experimental logs rather than a strictly unified benchmark.
 
-### 8.1 Cross-Framework Validation Results
+### 8.1 M2D-LIF Cross-Framework Validation Results
 
 Table 1 shows the validation performance comparison among the original PyTorch implementation, the Jittor implementation, and the converted `.pkl` to `.pt` checkpoint evaluated under the PyTorch/Ultralytics pipeline.
 
