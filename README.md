@@ -9,7 +9,7 @@ The main goal of this repository is to reproduce the core training and inference
 The implementation contains three main parts:
 
 1. **Jittor YOLOv8-OBB**
-   - Implements a YOLOv8-style oriented object detector based on JDet.
+   - Implements a YOLOv8-OBB object detector based on JDet.
    - Supports OBB labels.
    - Provides training, validation, and visualization scripts for single-modal RGB or infrared detection.
 
@@ -329,13 +329,13 @@ The M2D-LIF checkpoint was trained on the 5000-DroneVehicle training set for 100
 
 ### 8.2 Detection Performance Curves
 
-The following figure shows the mAP50-95 curves. The comparison includes single-modal baselines and the reproduced M2D-LIF dual-modal model. These curves are used to analyze the accuracy trend across epochs.
+The following figure shows the mAP50-95 curves. The comparison is the reproduced M2D-LIF dual-modal model. These curves are used to analyze the accuracy trend across epochs.
 
 ![M2D-LIF mAP comparison](docs/map50_95_comparison.png)
 
 ### 8.3 YOLOv8-OBB Single-Modal Detection Visualization
 
-The following figure shows representative single-modal YOLOv8-OBB oriented detection results. It is mainly used to verify that the Jittor YOLOv8-OBB detector can correctly perform oriented bounding box prediction on DroneVehicle-style aerial images.
+The following figure shows representative single-modal YOLOv8-OBB DroneVehicle detection results. It is mainly used to verify that the Jittor YOLOv8-OBB detector can correctly perform bounding box prediction on DroneVehicle-style aerial images.
 
 ![YOLOv8-OBB single-modal visual comparison](docs/YOLOV8_vis.png)
 
